@@ -45,9 +45,9 @@ const Home: NextPage = () => {
         <meta httpEquiv="content-Language" content="de" />
         <meta name="description" content="Spotify Clone made with ReactJS, NextJS and Redux" />
         <meta name="keywords" content="spotify,clone,spotify clone, reactjs,react,redux,nextjs" />
-        <meta name="author" content="Gamekohl" />
-        <meta name="publisher" content="Gamekohl" />
-        <meta name="copyright" content="Gamekohl" />
+        <meta name="author" content="ReJackTion" />
+        <meta name="publisher" content="ReJackTion" />
+        <meta name="copyright" content="ReJackTion" />
         <meta httpEquiv="Reply-to" content="" />
         <meta name="expires" content="" />
         <meta name="revisit-after" content="15 days" />
