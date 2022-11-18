@@ -1,17 +1,17 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { MantineProvider } from '@mantine/core';
-import { NowPlayingProvider } from '../contexts/useNowPlaying';
-import { motion, Variants } from 'framer-motion';
-import GlobalFonts from '../theming/GlobalFonts';
-import { appTheme } from '../theming/theme';
-import { Provider } from 'react-redux';
-import { store } from '../store/store';
-import dynamic from 'next/dynamic';
-import { ComponentType, ReactNode } from 'react';
+import { MantineProvider } from '@mantine/core'
+import { NowPlayingProvider } from '../contexts/useNowPlaying'
+import { motion, Variants } from 'framer-motion'
+import GlobalFonts from '../theming/GlobalFonts'
+import { appTheme } from '../theming/theme'
+import { Provider } from 'react-redux'
+import { store } from '../store/store'
+import dynamic from 'next/dynamic'
+import { ComponentType, ReactNode } from 'react'
 const MainLayout = dynamic(() => import('../layouts/MainLayout'), {
-  ssr: false
-});
+  ssr: false,
+})
 
 type ComponentWithPageLayout = AppProps & {
   Component: AppProps['Component'] & {
@@ -22,15 +22,15 @@ type ComponentWithPageLayout = AppProps & {
 const appVariants: Variants = {
   initial: {
     opacity: 0,
-    y: '5px'
+    y: '5px',
   },
   animate: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.2
-    }
-  }
+      duration: 0.2,
+    },
+  },
 }
 
 const App = ({ Component, pageProps, router }: ComponentWithPageLayout) => {
@@ -41,14 +41,19 @@ const App = ({ Component, pageProps, router }: ComponentWithPageLayout) => {
         withNormalizeCSS
         theme={{
           ...appTheme,
-          fontFamily: "Gotham, sans-serif",
-          colorScheme: 'dark'
+          fontFamily: 'Gotham, sans-serif',
+          colorScheme: 'dark',
         }}
       >
         <GlobalFonts />
         <NowPlayingProvider>
           <MainLayout>
-            <motion.div key={router.route} initial="initial" animate="animate" variants={appVariants}>
+            <motion.div
+              key={router.route}
+              initial="initial"
+              animate="animate"
+              variants={appVariants}
+            >
               {Component.PageLayout ? (
                 <Component.PageLayout>
                   <Component {...pageProps} />
@@ -61,7 +66,7 @@ const App = ({ Component, pageProps, router }: ComponentWithPageLayout) => {
         </NowPlayingProvider>
       </MantineProvider>
     </Provider>
-  );
+  )
 }
 
-export default App;
+export default App

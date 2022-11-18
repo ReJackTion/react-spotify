@@ -1,4 +1,4 @@
 export type Artist = {
-    name: string;
-    img: string;
+  name: string
+  img: string
 }

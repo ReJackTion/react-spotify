@@ -3,25 +3,26 @@ import Link, { LinkProps } from 'next/link'
 import { FunctionComponent, ReactNode } from 'react'
 
 const useStyles = createStyles({
-    wrapper: {
-        cursor: 'pointer',
+  wrapper: {
+    cursor: 'pointer',
 
-        '&:hover': {
-            textDecoration: 'underline'
-        }
-    }
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+  },
 })
 
-const NormalLink: FunctionComponent<LinkProps & { children: ReactNode }> = ({ children, ...props }) => {
-    const { classes } = useStyles();
+const NormalLink: FunctionComponent<LinkProps & { children: ReactNode }> = ({
+  children,
+  ...props
+}) => {
+  const { classes } = useStyles()
 
-    return (
-        <div className={classes.wrapper}>
-            <Link {...props}>
-                {children}
-            </Link>
-        </div>
-    )
+  return (
+    <div className={classes.wrapper}>
+      <Link {...props}>{children}</Link>
+    </div>
+  )
 }
 
 export default NormalLink

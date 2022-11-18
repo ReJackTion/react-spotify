@@ -1,20 +1,20 @@
-import { MouseEvent, useState } from "react"
+import { MouseEvent, useState } from 'react'
 
 const useElasticTabs = () => {
-    const [style, setStyle] = useState({});
+  const [style, setStyle] = useState({})
 
-    const onMouseEnter = (event: MouseEvent) => {
-        const target = event.target as HTMLButtonElement;
+  const onMouseEnter = (event: MouseEvent) => {
+    const target = event.target as HTMLButtonElement
 
-        setStyle({
-            width: target.getBoundingClientRect().width,
-            height: target.getBoundingClientRect().height,
-            left: target.offsetLeft,
-            top: target.offsetTop
-        });
-    }
+    setStyle({
+      width: target.getBoundingClientRect().width,
+      height: target.getBoundingClientRect().height,
+      left: target.offsetLeft,
+      top: target.offsetTop,
+    })
+  }
 
-    return { onMouseEnter, style };
+  return { onMouseEnter, style }
 }
 
-export default useElasticTabs;
+export default useElasticTabs

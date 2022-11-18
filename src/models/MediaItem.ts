@@ -1,6 +1,6 @@
 export type MediaItem = {
-    id: string;
-    title: string;
-    interpreter: string;
-    img: string;
+  id: string
+  title: string
+  interpreter: string
+  img: string
 }

@@ -5,7 +5,7 @@ import SplashItem from '../components/SplashItem/SplashItem'
 import { useState } from 'react'
 import { artists, dummyData } from '../data/dummy'
 import MediaSection from '../components/MediaSection/MediaSection'
-import MediaItem from '../components/MediaItem/MediaItem';
+import MediaItem from '../components/MediaItem/MediaItem'
 import { useMediaQuery } from '@mantine/hooks'
 import { Breakpoint, maxWidth } from '../utils/breakpoints'
 import ArtistItem from '../components/ArtistItem/ArtistItem'
@@ -15,23 +15,24 @@ const useStyles = createStyles({
   splashItems: {
     display: 'grid',
     gap: '16px 24px',
-    gridTemplate: 'auto/repeat(auto-fill, minmax(max(270px, 25%), 1fr))'
+    gridTemplate: 'auto/repeat(auto-fill, minmax(max(270px, 25%), 1fr))',
   },
   dynamicBackgroundWrapper: {
     width: 'calc(100% + 4rem)',
-    backgroundImage: 'linear-gradient(rgba(0,0,0,.6) 0, #121212 100%),url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48L3N2Zz4=")',
-    transition: 'background 1s ease'
-  }
+    backgroundImage:
+      'linear-gradient(rgba(0,0,0,.6) 0, #121212 100%),url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48L3N2Zz4=")',
+    transition: 'background 1s ease',
+  },
 })
 
 const Home: NextPage = () => {
-  const sm = useMediaQuery(maxWidth(Breakpoint.sm));
-  const { classes, cx } = useStyles();
-  const [avgColor, setAvgColor] = useState('rgb(83, 83, 83)');
-  const reversed = [].concat(dummyData).reverse();
+  const sm = useMediaQuery(maxWidth(Breakpoint.sm))
+  const { classes, cx } = useStyles()
+  const [avgColor, setAvgColor] = useState('rgb(83, 83, 83)')
+  const reversed = [].concat(dummyData).reverse()
 
   const handleColorChange = (color: string) => {
-    setAvgColor(color);
+    setAvgColor(color)
   }
 
   return (
@@ -43,8 +44,14 @@ const Home: NextPage = () => {
         <meta httpEquiv="Pragma" content="cache" />
         <meta name="robots" content="INDEX,FOLLOW" />
         <meta httpEquiv="content-Language" content="de" />
-        <meta name="description" content="Spotify Clone made with ReactJS, NextJS and Redux" />
-        <meta name="keywords" content="spotify,clone,spotify clone, reactjs,react,redux,nextjs" />
+        <meta
+          name="description"
+          content="Spotify Clone made with ReactJS, NextJS and Redux"
+        />
+        <meta
+          name="keywords"
+          content="spotify,clone,spotify clone, reactjs,react,redux,nextjs"
+        />
         <meta name="author" content="ReJackTion" />
         <meta name="publisher" content="ReJackTion" />
         <meta name="copyright" content="ReJackTion" />
@@ -53,8 +60,8 @@ const Home: NextPage = () => {
         <meta name="revisit-after" content="15 days" />
       </Head>
       <div>
-        <div className='gap-6 grid'>
-          <section className='flex flex-col min-h-[200px] relative mb-4'>
+        <div className="gap-6 grid">
+          <section className="flex flex-col min-h-[200px] relative mb-4">
             <div
               style={{ backgroundColor: avgColor }}
               className={cx(
@@ -63,24 +70,28 @@ const Home: NextPage = () => {
                 'absolute -mt-16 -ml-8 -z-10'
               )}
             ></div>
-            <Greeting className='mb-6' />
+            <Greeting className="mb-6" />
             <div className={classes.splashItems}>
-              {dummyData.slice(0, 6).map(item => (
-                <SplashItem key={item.id} emitAvgColor={handleColorChange} {...item} />
+              {dummyData.slice(0, 6).map((item) => (
+                <SplashItem
+                  key={item.id}
+                  emitAvgColor={handleColorChange}
+                  {...item}
+                />
               ))}
             </div>
           </section>
-          <MediaSection link='/' title='Jump back in'>
-            {dummyData.map(item => (
+          <MediaSection link="/" title="Jump back in">
+            {dummyData.map((item) => (
               <MediaItem key={item.id} {...item} />
             ))}
           </MediaSection>
-          <MediaSection link='/' title='Recently played'>
+          <MediaSection link="/" title="Recently played">
             {reversed.map((item, key) => (
               <MediaItem key={key} {...item} />
             ))}
           </MediaSection>
-          <MediaSection link='/' title='Your favorite artists'>
+          <MediaSection link="/" title="Your favorite artists">
             {artists.map((item, key) => (
               <ArtistItem key={key} {...item} />
             ))}
